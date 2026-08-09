@@ -1,81 +1,506 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Panchapakshi Daily - Privacy Policy</title>
-
-<style>
-body{
-    max-width:900px;
-    margin:auto;
-    font-family:Arial,sans-serif;
-    line-height:1.7;
-    padding:40px;
-    color:#333;
-}
-h1,h2{
-    color:#B8860B;
-}
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panchapakshi Daily - Privacy &amp; Data Policy</title>
+  <meta name="description" content="Panchapakshi Daily privacy policy and data deletion instructions. Learn how we protect your data and how to request deletion.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0F0E0A;
+      --surface: #1C1A14;
+      --surface-alt: #252218;
+      --border: #3A3420;
+      --gold: #F5C842;
+      --gold-mid: #D4A017;
+      --gold-dark: #B8860B;
+      --gold-muted: #C9A84C;
+      --text: #F5F0E8;
+      --text-sec: #C8B87A;
+      --text-muted: #8A8070;
+      --success: #00B894;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(212,160,23,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 90%, rgba(101,78,163,0.08) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 56px 0 40px;
+      gap: 16px;
+    }
+    .logo-wrap {
+      position: relative;
+      width: 100px;
+      height: 100px;
+    }
+    .logo-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 30px;
+      background: conic-gradient(from 0deg, var(--gold), var(--gold-dark), var(--gold), var(--gold-mid), var(--gold));
+      animation: spin 8s linear infinite;
+      opacity: 0.6;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .logo-img {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      border-radius: 24px;
+      object-fit: cover;
+      display: block;
+      box-shadow: 0 8px 32px rgba(245,200,66,0.25);
+    }
+    .app-name {
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-muted) 60%, #fff8e0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+      text-align: center;
+    }
+    .app-sub {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--text-sec);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 14px;
+      border-radius: 999px;
+    }
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+      border-radius: 999px;
+      margin: 8px 0 40px;
+      opacity: 0.6;
+    }
+    .tabs {
+      display: flex;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 6px;
+      margin-bottom: 32px;
+    }
+    .tab-btn {
+      flex: 1;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 10px 16px;
+      border-radius: var(--radius-md);
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-mid));
+      color: #0F0E0A;
+    }
+    .tab-btn:hover:not(.active) {
+      background: var(--surface-alt);
+      color: var(--text-sec);
+    }
+    .tab-panel { display: none; animation: fadeIn 0.3s ease; }
+    .tab-panel.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: rgba(212,160,23,0.35); }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: rgba(245,200,66,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .card p {
+      color: var(--text-sec);
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    .card p:last-child { margin-bottom: 0; }
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .info-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--text-sec);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .info-list li::before {
+      content: 'v';
+      color: var(--gold-mid);
+      font-size: 11px;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+    .step-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 4px;
+    }
+    .step-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-mid));
+      color: #0F0E0A;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step-text {
+      color: var(--text-sec);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .step-text strong { color: var(--text); font-weight: 600; }
+    .highlight-box {
+      background: rgba(0,184,148,0.08);
+      border: 1px solid rgba(0,184,148,0.3);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-top: 12px;
+    }
+    .highlight-box .hl-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .highlight-box p { color: #7FD8C4 !important; margin: 0 !important; font-size: 14px !important; }
+    .warn-box {
+      background: rgba(212,160,23,0.08);
+      border: 1px solid rgba(212,160,23,0.3);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .warn-box .w-icon { font-size: 20px; flex-shrink: 0; }
+    .warn-box p { color: var(--gold-muted) !important; margin: 0 !important; font-size: 14px !important; }
+    .eff-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .eff-date span { color: var(--gold-muted); font-weight: 600; }
+    .contact-card {
+      background: linear-gradient(135deg, rgba(212,160,23,0.08) 0%, rgba(184,134,11,0.04) 100%);
+      border: 1px solid rgba(212,160,23,0.25);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .contact-card h3 { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .contact-card p { color: var(--text-sec); font-size: 14px; margin-bottom: 20px; }
+    .email-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-mid));
+      color: #0F0E0A;
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .email-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    footer {
+      margin-top: 56px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    footer a { color: var(--gold-muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+    @media (max-width: 600px) {
+      .app-name { font-size: 26px; }
+      .tabs { flex-direction: column; }
+      .card { padding: 20px; }
+      .contact-card { padding: 24px 20px; }
+    }
+  </style>
 </head>
-
 <body>
+<div class="page">
 
-<h1>Panchapakshi Daily Privacy Policy</h1>
+  <header class="hero">
+    <div class="logo-wrap">
+      <div class="logo-ring"></div>
+      <img class="logo-img" src="icon.png" alt="Panchapakshi Daily App Icon">
+    </div>
+    <h1 class="app-name">Panchapakshi Daily</h1>
+    <p class="app-sub">&#2986;&#2974;&#3021;&#2970;&#2986;&#2975;&#3021;&#2970;&#3007; &middot; Privacy &amp; Data Policy</p>
+    <div class="badge">Version 1.0.1</div>
+  </header>
 
-<p>Effective Date: August 2026</p>
+  <div class="divider"></div>
 
-<p>
-Panchapakshi Daily respects your privacy. This Privacy Policy explains
-what information the app collects and how it is used.
-</p>
+  <div style="display:flex;justify-content:center;">
+    <div class="eff-date">&#128197; Effective Date: <span>August 2026</span></div>
+  </div>
 
-<h2>Information We Collect</h2>
+  <nav class="tabs" role="tablist" aria-label="Policy sections">
+    <button class="tab-btn active" id="tab-privacy" role="tab" aria-selected="true" aria-controls="panel-privacy" onclick="switchTab('privacy')">&#128274; Privacy Policy</button>
+    <button class="tab-btn" id="tab-deletion" role="tab" aria-selected="false" aria-controls="panel-deletion" onclick="switchTab('deletion')">&#128465;&#65039; Data Deletion</button>
+  </nav>
 
-<ul>
-<li>Profile information entered by you.</li>
-<li>Location (only if you allow it) to calculate sunrise and sunset.</li>
-<li>App preferences stored locally on your device.</li>
-</ul>
+  <!-- PRIVACY POLICY -->
+  <section id="panel-privacy" class="tab-panel active" role="tabpanel" aria-labelledby="tab-privacy">
 
-<h2>How We Use Information</h2>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">&#128737;&#65039;</div>
+        <h2 class="card-title">Our Commitment to Your Privacy</h2>
+      </div>
+      <p>Panchapakshi Daily is built with privacy by design. We do not sell, rent, or share your personal information with third parties. All data related to your profiles, preferences, and daily usage is processed and stored <strong>locally on your device</strong>.</p>
+    </div>
 
-<ul>
-<li>Calculate Panchapakshi schedules.</li>
-<li>Provide personalized recommendations.</li>
-<li>Improve the app experience.</li>
-</ul>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">&#128203;</div>
+        <h2 class="card-title">Information We Collect</h2>
+      </div>
+      <ul class="info-list">
+        <li>Profile information you enter (name, birth details for Panchapakshi calculations).</li>
+        <li>Location data &mdash; <em>only if you grant permission</em> &mdash; used exclusively to calculate accurate local sunrise and sunset times.</li>
+        <li>App preferences (theme, language, notification settings) stored locally on your device.</li>
+        <li>Journal entries and notes you create within the app, stored on-device only.</li>
+      </ul>
+    </div>
 
-<h2>Data Sharing</h2>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">&#9881;&#65039;</div>
+        <h2 class="card-title">How We Use Your Information</h2>
+      </div>
+      <ul class="info-list">
+        <li>Calculate personalised Panchapakshi bird schedules and yama states for your day.</li>
+        <li>Determine accurate sunrise times based on your location for precise timing.</li>
+        <li>Send optional notifications when each yama state begins, if you enable them.</li>
+        <li>Improve app experience through anonymised, non-identifiable usage insights.</li>
+      </ul>
+    </div>
 
-<p>
-We do not sell your personal information.
-</p>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">&#129309;</div>
+        <h2 class="card-title">Data Sharing</h2>
+      </div>
+      <p>We <strong>do not sell</strong> your personal information. We <strong>do not share</strong> your data with advertisers or analytics companies. Your profile and journal data never leaves your device.</p>
+      <div class="highlight-box">
+        <div class="hl-icon">&#9989;</div>
+        <p>All personal data is stored exclusively on your device. Panchapakshi Daily has no backend server that receives or stores your personal information.</p>
+      </div>
+    </div>
 
-<h2>Data Deletion</h2>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">&#128205;</div>
+        <h2 class="card-title">App Permissions</h2>
+      </div>
+      <ul class="info-list">
+        <li><strong>Location (optional):</strong> Used only to calculate local sunrise time. Never stored beyond the session.</li>
+        <li><strong>Notifications (optional):</strong> Used to send yama state alerts at the times you configure. You may disable this anytime in system settings.</li>
+      </ul>
+    </div>
 
-<p>
-Panchapakshi Daily stores user profiles, preferences, and journal entries locally on your device. We do not store your personal data on our servers.
-</p>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">&#128221;</div>
+        <h2 class="card-title">Policy Updates</h2>
+      </div>
+      <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with a revised effective date. Continued use of the app after changes constitutes your acceptance of the updated policy.</p>
+    </div>
 
-<p>
-You may delete your data at any time by:
-</p>
+  </section>
 
-<ul>
-  <li>Deleting individual family profiles within the app (where applicable).</li>
-  <li>Uninstalling the app.</li>
-  <li>Clearing the app's storage from your device settings, which permanently removes all locally stored data.</li>
-</ul>
+  <!-- DATA DELETION -->
+  <section id="panel-deletion" class="tab-panel" role="tabpanel" aria-labelledby="tab-deletion">
 
-<h2>Contact</h2>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">&#128190;</div>
+        <h2 class="card-title">Where Your Data Lives</h2>
+      </div>
+      <p>Panchapakshi Daily stores all user data &mdash; including profiles, preferences, journal entries, and notification settings &mdash; <strong>locally on your device</strong>. We do not maintain any cloud database or server-side records of your personal information.</p>
+      <div class="highlight-box">
+        <div class="hl-icon">&#8505;&#65039;</div>
+        <p>Because no data is sent to our servers, there is no account to delete and no server-side request needed. You have full control over your data at all times.</p>
+      </div>
+    </div>
 
-<p>
-Email:
-amirdha.subramani.29@gmail.com
-</p>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">&#128465;&#65039;</div>
+        <h2 class="card-title">How to Delete Your Data</h2>
+      </div>
+      <p>You may delete your data at any time using any of the following methods:</p>
+      <ol class="step-list">
+        <li class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-text"><strong>Delete individual profiles in-app:</strong> Go to the Profile section within Panchapakshi Daily and remove individual family member profiles. This deletes all associated data for that profile.</div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-text"><strong>Clear app storage:</strong> On Android, go to <em>Settings &rarr; Apps &rarr; Panchapakshi Daily &rarr; Storage &rarr; Clear Data</em>. On iOS, go to <em>Settings &rarr; General &rarr; iPhone Storage &rarr; Panchapakshi Daily &rarr; Offload App</em>. This permanently removes all locally stored data.</div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-text"><strong>Uninstall the app:</strong> Uninstalling Panchapakshi Daily removes all data associated with the app from your device.</div>
+        </li>
+      </ol>
+    </div>
 
+    <div class="warn-box">
+      <div class="w-icon">&#9888;&#65039;</div>
+      <p>Data deletion is <strong>permanent and irreversible</strong>. Once deleted, your profiles, preferences, and journal entries cannot be recovered. Please export or note any important information before deleting.</p>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <div class="card-header">
+        <div class="card-icon">&#10067;</div>
+        <h2 class="card-title">Need Help with Deletion?</h2>
+      </div>
+      <p>If you have questions or need assistance with data deletion, please contact us at the email below. We respond within 2&ndash;3 business days.</p>
+    </div>
+
+  </section>
+
+  <div class="contact-card">
+    <h3>&#128236; Contact Us</h3>
+    <p>Have questions about your privacy or data? We would love to hear from you.</p>
+    <a href="mailto:amirdha.subramani.29@gmail.com" class="email-btn" id="contact-email-btn">&#9993;&#65039; amirdha.subramani.29@gmail.com</a>
+  </div>
+
+  <footer>
+    <div>&copy; 2026 Panchapakshi Daily &middot; All rights reserved.</div>
+    <div>Available on <a href="https://play.google.com/store/apps/details?id=com.panchapakshi.daily" target="_blank" rel="noopener">Android</a> &amp; <a href="#" target="_blank" rel="noopener">iOS</a></div>
+  </footer>
+
+</div>
+
+<script>
+  function switchTab(name) {
+    document.querySelectorAll('.tab-btn').forEach(function(b) {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    var btn = document.getElementById('tab-' + name);
+    if (btn) { btn.classList.add('active'); btn.setAttribute('aria-selected', 'true'); }
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    var panel = document.getElementById('panel-' + name);
+    if (panel) panel.classList.add('active');
+  }
+</script>
 </body>
 </html>
