@@ -242,8 +242,14 @@
     if(btn){
       var isLight=theme==='light';
       btn.textContent=isLight?'🌙':'☀️';
-      btn.setAttribute('aria-label',isLight?'Switch to dark theme':'Switch to light theme');
-      btn.setAttribute('title',isLight?'Switch to dark theme':'Switch to light theme');
+      btn.setAttribute(
+        'aria-label',
+        isLight ? 'Switch to dark theme' : 'Switch to light theme'
+      );
+      btn.setAttribute(
+        'title',
+        isLight ? 'Switch to dark theme' : 'Switch to light theme'
+      );
     }
     try{localStorage.setItem('pp-theme',theme)}catch(e){}
   }
@@ -261,19 +267,31 @@
     document.getElementById('btn-ta').setAttribute('aria-pressed',String(l==='ta'));
     try{localStorage.setItem('pp-lang',l)}catch(e){}
   }
+
   function switchTab(n){
-    document.querySelectorAll('.tab-btn').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false')});
-    var b=document.getElementById('tab-'+n);if(b){b.classList.add('active');b.setAttribute('aria-selected','true')}
-    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-    var p=document.getElementById('panel-'+n);if(p)p.classList.add('active');
+    document.querySelectorAll('.tab-btn').forEach(b=>{
+      b.classList.remove('active');
+      b.setAttribute('aria-selected','false');
+    });
+
+    var b=document.getElementById('tab-'+n);
+    if(b){
+      b.classList.add('active');
+      b.setAttribute('aria-selected','true');
+    }
+
+    document.querySelectorAll('.tab-panel').forEach(p=>{
+      p.classList.remove('active');
+    });
+
+    var p=document.getElementById('panel-'+n);
+    if(p)p.classList.add('active');
   }
+
+  // Initial page appearance: Light theme + Tamil
   (function(){
-    try{
-      var t=localStorage.getItem('pp-theme');
-      applyTheme(t==='light'?'light':'dark');
-      var s=localStorage.getItem('pp-lang');
-      if(s==='ta')setLang('ta');
-    }catch(e){applyTheme('dark')}
+    applyTheme('light');
+    setLang('ta');
   })();
 </script>
 </body>
